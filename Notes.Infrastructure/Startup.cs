@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Common.Serialization;
 
 namespace Notes.Infrastrunture;
 
@@ -17,6 +18,8 @@ public static class Startup
         services.AddValidator();
         services.AddMapper();
         services.AddSwaggers();
+        services.AddSerializer();
+        services.AddServiceBusIntegrationPublisher(config);
     }
 
     public static void UseInfrastructure(this IApplicationBuilder app, IWebHostEnvironment env)

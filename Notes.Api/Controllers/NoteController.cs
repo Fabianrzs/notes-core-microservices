@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MediatR;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using Reservar.Common.Domain.Response;
 using Notes.Application.UseCase.Notes.Dtos;
 using Notes.Application.UseCase.Notes.Queries.Notes;
@@ -38,10 +38,10 @@ public class NoteController
         return new Response<NoteDto>(response);
     }
 
-    [HttpDelete("{Id}")]
-    public async Task<ActionResult<Response<Unit>>> DeleteCategory(Guid Id)
+    [HttpDelete("{Id}/{email}")]
+    public async Task<ActionResult<Response<Unit>>> DeleteCategory(Guid Id, string email)
     {
-        var response = await _mediator.Send(new NoteDeleteCommand(Id));
+        var response = await _mediator.Send(new NoteDeleteCommand(Id, email));
         return new Response<Unit>(response);
     }
 }

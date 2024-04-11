@@ -38,10 +38,10 @@ public class CategoryController
         return new Response<CategoryDto>(response);
     }
 
-    [HttpDelete("{Id}")]
-    public async Task<ActionResult<Response<Unit>>> DeleteCategory(Guid Id)
+    [HttpDelete("{Id}/{email}")]
+    public async Task<ActionResult<Response<Unit>>> DeleteCategory(Guid Id, string email)
     {
-        var response = await _mediator.Send(new CategoryDeleteCommand(Id));
+        var response = await _mediator.Send(new CategoryDeleteCommand(Id, email));
         return new Response<Unit>(response);
     }
 }
