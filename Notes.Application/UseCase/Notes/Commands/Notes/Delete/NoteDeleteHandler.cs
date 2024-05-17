@@ -1,4 +1,5 @@
-﻿using Common.Communication.Publisher.Integration;
+﻿using Reservar.Common.Domain.Entities.Subscription;
+using Common.Communication.Publisher.Integration;
 using Notes.Domain.Services;
 
 namespace Notes.Application.UseCase.Notes.Commands.Notes.Delete;

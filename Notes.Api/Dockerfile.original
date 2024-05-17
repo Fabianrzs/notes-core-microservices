@@ -8,9 +8,6 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Notes.Api/Notes.Api.csproj", "Notes.Api/"]
-COPY ["Notes.Application/Notes.Application.csproj", "Notes.Application/"]
-COPY ["Notes.Infrastructure/Notes.Infrastructure.csproj", "Notes.Infrastructure/"]
-COPY ["Notes.Domain/Notes.Domain.csproj", "Notes.Domain/"]
 RUN dotnet restore "./Notes.Api/./Notes.Api.csproj"
 COPY . .
 WORKDIR "/src/Notes.Api"

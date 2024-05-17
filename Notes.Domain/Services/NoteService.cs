@@ -15,7 +15,7 @@ public class NoteService
 
     public async Task<IEnumerable<Note>> GetNotesAsync(Guid categoryId)
     {
-        return await _noteRepository.GetAsync(x => x.Id == categoryId);
+        return await _noteRepository.GetAsync(x => x.CategoryId == categoryId);
     }
     public async Task<IEnumerable<Note>> GetNoteByIdAsync(Guid Id)
     {
